@@ -2,7 +2,14 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, create .env file in root folder and add:
+
+```bash
+DATABASE_URL=file:./dev.db
+AUTH_SECRET="next-auth-test"
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
