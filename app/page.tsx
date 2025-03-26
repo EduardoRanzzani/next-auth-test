@@ -1,12 +1,14 @@
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { LuGithub, LuMail } from 'react-icons/lu';
+import { FaGithub } from 'react-icons/fa6';
+import { LuMail } from 'react-icons/lu';
 
 export default function Home() {
 	return (
-		<div className='flex flex-col items-center justify-center h-screen w-full gap-4'>
-			<h1 className='text-4xl text-zinc-950 font-bold'>Workshop Auth.js</h1>
+		<div className='flex flex-col items-center justify-center gap-4'>
+			<h1 className='text-4xl font-bold'>Workshop Auth.js</h1>
+			<hr className='border-b border-[var(--foreground)]' />
 			<div className='flex flex-row gap-4'>
 				<Link href={'/dashboard'} className={cn(buttonVariants()) + ' w-60'}>
 					Dashboard
@@ -33,14 +35,14 @@ export default function Home() {
 			</div>
 
 			<div className='flex flex-row gap-4'>
-				<Button className='w-60 hover:cursor-pointer'>
-					<LuGithub /> Login com Github
-				</Button>
+				<Link href={'/login-github'} className={cn(buttonVariants()) + ' w-60'}>
+					<FaGithub /> Login com Github
+				</Link>
 
 				<Button className='w-60 hover:cursor-pointer'>
 					<LuMail /> Login com Email
 				</Button>
-			</div>
+		</div>
 		</div>
 	);
 }

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
 import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider } from '@/components/theme-provider';
+import ToggleTheme from '@/components/ToggleTheme';
 
 const roboto = Roboto({
 	subsets: ['latin'],
@@ -18,9 +20,21 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
+		<html lang='en' suppressHydrationWarning>
 			<body className={`${roboto.className} antialiased`}>
-				<SessionProvider>{children}</SessionProvider>
+				<div className='h-screen  w-full p-8'>
+					<SessionProvider>
+						<ThemeProvider
+							attribute='class'
+							defaultTheme='light'
+							enableSystem
+							disableTransitionOnChange
+						>
+							<ToggleTheme />
+							{children}
+						</ThemeProvider>
+					</SessionProvider>
+				</div>
 			</body>
 		</html>
 	);

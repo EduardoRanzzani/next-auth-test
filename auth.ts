@@ -1,5 +1,7 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import GithubProvider from 'next-auth/providers/github';
+import GoogleProvider from 'next-auth/providers/google';
 import prisma from '@/lib/db';
 import { compareSync, hashSync } from 'bcrypt-ts';
 
@@ -38,5 +40,7 @@ export const {
 				return null;
 			},
 		}),
+		GithubProvider({}),
+		GoogleProvider({}),
 	],
 });
