@@ -8,21 +8,28 @@ export default function Home() {
 		<div className='flex flex-col items-center justify-center h-screen w-full gap-4'>
 			<h1 className='text-4xl text-zinc-950 font-bold'>Workshop Auth.js</h1>
 			<div className='flex flex-row gap-4'>
-				<Button className='w-60 hover:cursor-pointer'>Dashboard</Button>
+				<Link href={'/dashboard'} className={cn(buttonVariants()) + ' w-60'}>
+					Dashboard
+				</Link>
 				<Link
 					href={'/api/auth/signin'}
 					className={cn(buttonVariants()) + ' w-60'}
 				>
-					Login Simples (Nativo)
+					<abbr
+						title='Login utilizando a tela do auth.js'
+						className='no-underline'
+					>
+						Login Simples (Nativo)
+					</abbr>
 				</Link>
 
 				<Link href={'/login-server'} className={cn(buttonVariants()) + ' w-60'}>
 					Login - Server Components
 				</Link>
 
-				<Button className='w-60 hover:cursor-pointer'>
+				<Link href={'/login-client'} className={cn(buttonVariants()) + ' w-60'}>
 					Login - Client Components
-				</Button>
+				</Link>
 			</div>
 
 			<div className='flex flex-row gap-4'>
