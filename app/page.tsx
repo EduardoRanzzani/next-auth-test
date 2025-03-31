@@ -9,7 +9,7 @@ export default function Home() {
 		<div className='flex flex-col items-center justify-center gap-4'>
 			<h1 className='text-4xl font-bold'>Workshop Auth.js</h1>
 			<hr className='border-b border-[var(--foreground)]' />
-			<div className='flex flex-row gap-4'>
+			<div className='flex flex-row gap-4 flex-wrap justify-center'>
 				<Link href={'/dashboard'} className={cn(buttonVariants()) + ' w-60'}>
 					Dashboard
 				</Link>
@@ -32,17 +32,15 @@ export default function Home() {
 				<Link href={'/login-client'} className={cn(buttonVariants()) + ' w-60'}>
 					Login - Client Components
 				</Link>
-			</div>
 
-			<div className='flex flex-row gap-4'>
 				<Link href={'/login-github'} className={cn(buttonVariants()) + ' w-60'}>
 					<FaGithub /> Login com Github
 				</Link>
 
-				<Button className='w-60 hover:cursor-pointer'>
+				<Link href={'/login-email'} className={cn(buttonVariants()) + ' w-60'}>
 					<LuMail /> Login com Email
-				</Button>
-		</div>
+				</Link>
+			</div>
 		</div>
 	);
 }

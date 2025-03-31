@@ -1,9 +1,13 @@
+import { PrismaAdapter } from '@auth/prisma-adapter';
+import { PrismaClient } from '@prisma/client';
+import { compareSync } from 'bcrypt-ts';
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
-import prisma from '@/lib/db';
-import { compareSync, hashSync } from 'bcrypt-ts';
+import EmailProvider from 'next-auth/providers/nodemailer';
+
+const prisma = new PrismaClient();
 
 export const {
 	handlers: { GET, POST },
@@ -11,6 +15,10 @@ export const {
 	signIn,
 	signOut,
 } = NextAuth({
+	adapter: PrismaAdapter(prisma),
+	session: {
+		strategy: 'jwt',
+	},
 	providers: [
 		Credentials({
 			credentials: {
@@ -40,7 +48,22 @@ export const {
 				return null;
 			},
 		}),
-		GithubProvider({}),
-		GoogleProvider({}),
+		GithubProvider({
+			allowDangerousEmailAccountLinking: true,
+		}),
+		GoogleProvider({
+			allowDangerousEmailAccountLinking: true,
+		}),
+		EmailProvider({
+			server: {
+				host: process.env.EMAIL_SERVER_HOST,
+				port: process.env.EMAIL_SERVER_PORT,
+				auth: {
+					user: process.env.EMAIL_SERVER_USER,
+					pass: process.env.EMAIL_SERVER_PASSWORD,
+				},
+				from: process.env.EMAIL_FROM,
+			},
+		}),
 	],
 });

@@ -9,12 +9,12 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
-import { LuLogIn, LuSave } from 'react-icons/lu';
+import { LuSave } from 'react-icons/lu';
 import register from '../_actions/register';
 
 const RegisterForm = () => {
 	return (
-		<Card className='w-[25%]'>
+		<Card className='w-[25%] md:w-[60%]'>
 			<CardHeader className='text-center'>
 				<CardTitle className='text-xl font-bold'>Register</CardTitle>
 				<CardDescription></CardDescription>
@@ -51,7 +51,7 @@ const RegisterForm = () => {
 						</div>
 
 						<div className='flex flex-row items-center justify-center'>
-							<Link href={'/login'} className='flex flex-row'>
+							<Link href={'/login-server'} className='flex flex-row'>
 								Já possui conta?
 							</Link>
 						</div>

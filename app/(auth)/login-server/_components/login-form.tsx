@@ -16,7 +16,7 @@ import login from '../_actions/login';
 
 const LoginForm = () => {
 	return (
-		<Card className='w-[25%]'>
+		<Card className='w-[25%] md:w-[60%]'>
 			<CardHeader className='text-center'>
 				<CardTitle className='text-xl font-bold'>Login</CardTitle>
 				<CardDescription>Login to your account</CardDescription>

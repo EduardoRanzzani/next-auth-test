@@ -21,7 +21,7 @@ const ErrorCard = ({
 }) => {
 	return (
 		<>
-			<Card className='mx-auto min-w-96 border-red-700 w-[25%]'>
+			<Card className='mx-auto min-w-96 border-red-700 w-[25%] md:w-[60%]'>
 				<CardHeader>
 					<CardTitle className='flex items-center justify-center gap-2 text-red-700 text-2xl font-bold'>
 						<LuCircleX />

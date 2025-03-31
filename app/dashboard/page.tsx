@@ -17,7 +17,7 @@ const Dashboard = async () => {
 	return (
 		<main className='flex flex-col items-center justify-center w-full gap-8'>
 			<h1 className='text-9xl font-extrabold'>Dashboard</h1>
-			<div className='text-center flex flex-row gap-3 items-center justify-center'>
+			<div className='text-center flex flex-col gap-3 items-center justify-center'>
 				<Image
 					src={
 						session.user?.image ??
@@ -31,7 +31,7 @@ const Dashboard = async () => {
 					height={100}
 					className='border border-zinc-300 rounded-full'
 				/>
-				<div className='flex flex-col items-start justify-center'>
+				<div className='flex flex-col items-center justify-center'>
 					<p className='text-lg'>Boas vindas{`, ${session.user?.name}`}</p>
 					<p className='text-sm text-muted-foreground'>
 						E-Mail: {session.user?.email}

@@ -7,25 +7,25 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card';
-import { FaGithub } from 'react-icons/fa6';
-import githubLogin from '../_actions/login';
+import { LuMail } from 'react-icons/lu';
+import emailLogin from '../_actions/login';
 
-const GithubLoginForm = () => {
+const EmailLoginForm = () => {
 	return (
 		<Card className='w-[25%] md:w-[60%]'>
 			<CardHeader className='text-center'>
 				<CardTitle className='text-xl font-bold'>Login</CardTitle>
-				<CardDescription>Login to your account</CardDescription>
+				<CardDescription>Receive a magic link via email</CardDescription>
 			</CardHeader>
 			<CardContent>
-				<form action={githubLogin}>
+				<form action={emailLogin}>
 					<div className='flex flex-col gap-4'>
 						<div>
 							<Button
 								type='submit'
 								className='w-full hover:cursor-pointer flex flex-row items-center justify-center gap-4'
 							>
-								<FaGithub /> Login com Github
+								<LuMail /> Login com EMail
 							</Button>
 						</div>
 
@@ -39,4 +39,4 @@ const GithubLoginForm = () => {
 	);
 };
 
-export default GithubLoginForm;
+export default EmailLoginForm;
